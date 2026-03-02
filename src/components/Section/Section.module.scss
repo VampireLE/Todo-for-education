@@ -1,0 +1,74 @@
+.section {
+    margin-top: 15px;
+    padding-top: 10px;
+    width: 900px;
+    height: 500px;
+    overflow: auto;
+}
+
+.items {
+    margin-top: 30px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 800px;
+}
+
+.item__container {
+    user-select: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.item__container:hover {
+    box-shadow: 0 0 7px 0.01px rgb(183, 183, 183);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.item__action-subtask {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgb(205, 205, 205);
+}
+
+.item__action-info {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(255, 251, 0, 0.507);
+    border-radius: 10px;
+}
+
+.item__action-remove {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.363);
+}
+
+.item__remove path {
+    color: rgba(255, 0, 0, 0.815);
+    stroke: currentColor;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+}

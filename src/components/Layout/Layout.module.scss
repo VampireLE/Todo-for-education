@@ -1,0 +1,12 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    // box-shadow: 0 0 5px .5px rgb(191, 191, 191);
+    
+    &__wrapper {
+        margin: auto 30px;
+    }
+}
