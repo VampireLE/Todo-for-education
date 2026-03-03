@@ -3,26 +3,30 @@ import style from "./Section.module.scss"
 import { ItemContext } from "../../App";
 
 function Section() {
-    const {item, id} = useContext(ItemContext);
-    const removeItem = () => {
-        if (!item) return 'not found'
-        const index = item.filter((val)=> val.id !== id)
-        console.log(index)
-        // item.slice(index, 1)
+    const {filteredItem, setItem} = useContext(ItemContext);
+
+    const removeItem = (id) => {
+        if (filteredItem.length < 1) return
+        const newItems = filteredItem.filter((val) => val.id !== id)
+        setItem(newItems)
+    }
+    console.log(filteredItem)
+    const updateItem = (id, name) => {
+        if (item.length < 1) return
     }
 
     return (
         <section className={style.section}>
             <div className={style.section__wrapper}>
                 <div className={style.items}>
-                    {item.map((val, i) => (
+                    {filteredItem.map((val, i) => (
                         <div key={i} className={style.item__container}>
-                            <div className={style.item}>{val.value}</div>
+                            <div className={style.item}>{val.value} {val.date}</div>
                             <div className={style.actions}>
                                 <div
                                     className={style['item__action-subtask']}>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                                     </svg>
                                 </div>
                                 <div className={style['item__action-info']}>
@@ -32,7 +36,7 @@ function Section() {
                                     </svg>
                                 </div>
                                 <div 
-                                    onClick={() => removeItem()}
+                                    onClick={() => removeItem(val.id)}
                                     className={style['item__action-remove']}>
                                     <svg viewBox="0 0 10 10" className={style.item__remove}>
                                         <path d="M3,7 L7,3" className="p1"/>

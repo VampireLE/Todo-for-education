@@ -7,7 +7,7 @@ function Button({
     width, 
     height, 
     backgroundColor, 
-    color, 
+    color,
     value, 
     valueInput
 }) {

@@ -7,6 +7,12 @@ export const ItemContext = createContext();
 
 function App() {
   const [item, setItem] = useState([]);
+  const [search, setSearch] = useState('');
+  
+  const filterBySearchInput = () => {
+    // if (item.length < 1) return
+    return item.filter((el) => (el.value.toLowerCase().includes(search.toLowerCase())))
+  }
 
   const generateId = (length=25) => {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -19,10 +25,12 @@ function App() {
         
         return result;
     }
+
+    const filteredItem = filterBySearchInput()
     const id = generateId();
   
   return (
-    <ItemContext.Provider value={{item, setItem, id}}>
+    <ItemContext.Provider value={{filteredItem, setItem, id, search, setSearch}}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}/>

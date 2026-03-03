@@ -1,0 +1,25 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(160, 160, 160);
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.search input:hover {
+    border: 1px solid rgb(104, 104, 104);
+}
+
+.search input:focus {
+    box-shadow: 0 0 5px 0.3px rgba(19, 40, 158, 0.473);
+    border: 1px solid rgb(33, 14, 211);
+}

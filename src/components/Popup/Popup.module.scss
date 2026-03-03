@@ -1,0 +1,23 @@
+.popup__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(57, 57, 57, 0.751);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup {
+    border-radius: 10px;
+    width: 600px;
+    height: 500px;
+    background-color: white;
+}
+
+.popup__wrapper {
+    margin: 30px;
+}
