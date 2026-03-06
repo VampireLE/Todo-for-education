@@ -10,6 +10,19 @@ function Section() {
         const newItems = filteredItem.filter((val) => val.id !== id)
         setItem(newItems)
     }
+
+    const toggleItem = (id, status) => {
+        if (filteredItem.length < 1) return
+        if (status === 'active') {
+            status = 'done'
+        } else {
+            status
+        }
+
+        const newItem = filteredItem.filter((val) => val.id === id)
+        setItem(prev => [{...prev, 'status': status}])
+    }
+
     console.log(filteredItem)
     const updateItem = (id, name) => {
         if (item.length < 1) return
@@ -23,6 +36,11 @@ function Section() {
                         <div key={i} className={style.item__container}>
                             <div className={style.item}>{val.value} {val.date}</div>
                             <div className={style.actions}>
+                                <div
+                                    onClick={() => toggleItem(val.id, val.status)}
+                                    className={style['item__action-done']}>
+                                        Done
+                                </div>
                                 <div
                                     className={style['item__action-subtask']}>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

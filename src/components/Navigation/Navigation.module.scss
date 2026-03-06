@@ -1,27 +1,22 @@
-.fild-create-task {
-    font-size: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 200px;
-    height: 30px;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid rgb(160, 160, 160);
-}
-
-.fild-create-task:hover {
-    border: 1px solid rgb(104, 104, 104);
-}
-
-.fild-create-task:focus {
-    box-shadow: 0 0 5px 0.3px rgba(19, 40, 158, 0.473);
-    border: 1px solid rgb(33, 14, 211);
-}
-
-.nav {
+.nav__actions {
     margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav__avtion {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(200, 200, 200);
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0.4px rgb(191, 191, 191);
 }

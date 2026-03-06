@@ -2,27 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import style from "./Navigation.module.scss"
 import { ItemContext } from "../../App";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { useNavigate } from "react-router";
 
 function Navigation() {
-    const {item, setItem} = useContext(ItemContext);
-    const [value, setValue] = useState('');
 
+    const navigate = useNavigate();
     return (
-        <div className={style.nav}>
-            <div>
-                <input
-                    onChange={(e) => setValue(e.target.value)}
-                className={style['fild-create-task']} type="text" />
+        <div className={style.nav__actions}>
+            <div onClick={() => navigate('/')} className={style.nav__avtion}>
+                Active
             </div>
-            <div>
-                <Button
-                    valueInput={value}
-                    width={'130px'}
-                    height={'35px'}
-                    backgroundColor={'#0075ff'}
-                    color={'white'}
-                    value={'Add new task'}
-                />
+            <div onClick={() => navigate('/done')} className={style.nav__avtion}>
+                Done
             </div>
         </div>
     )

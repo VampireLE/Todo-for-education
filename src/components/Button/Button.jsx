@@ -23,16 +23,23 @@ function Button({
             second: 'numeric'
         }
 
-        const currentDate = date.toLocaleDateString("ru", options);
-        // const id = Math.floor(Math.random() * maxInt);
+        const {addTodo} = useLocalStorage();
         
-    return (
-        <div
-            onClick={() => setItem(prev => [...prev, {
+        const data = () => {
+            setItem(prev => [...prev, {
                 'id': id,
+                'status': 'active',
                 'date': currentDate,
                 'value': valueInput
-            }])}
+            }])
+            addTodo('todos', item)
+        }
+
+        const currentDate = date.toLocaleDateString("ru", options);
+
+    return (
+        <div
+            onClick={() => data()}
             className={style.button}
             style={{
                 width,
