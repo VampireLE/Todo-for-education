@@ -1,44 +1,59 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-function useLocalStorage(initialState=[]) {
-
-    const [actions, setActions] = useState(initialState);
-
-    const getTodo = useCallback((key) => {
-        const item = localStorage.getItem(key);
-        if (!item) throw new Error('key not found')
-    })
-
-    const addTodo = useCallback((key, value) => {
-        localStorage.setItem(key, value)
-    })
-
-    const updateTodo = useCallback((text) => {
-
-    })
-
-    const deleteTodo = useCallback((text) => {
-
-    })
-
-    const clearTodo = useCallback((text) => {
-        return initialState
-    })
-
-    return {
-        getTodo,
-        addTodo,
-        updateTodo,
-        deleteTodo,
-        clearTodo
+function useLocalStorage(key, initialValue = []) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.error('Error reading from localStorage:', error);
+      return initialValue;
     }
+  });
 
+  useEffect(() => {
+    try {
+      localStorage.setItem(key, JSON.stringify(storedValue));
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
+  }, [key, storedValue]);
 
-    // useEffect(() => {
-        
-    //     localStorage.getItem(key)
-    //     localStorage.setItem(key, initialValue)
-    // }, [])
+  const getTodo = () => storedValue;
+
+  const addTodo = (newItem) => {
+    setStoredValue(prev => [...prev, newItem]);
+  };
+
+  const updateTodo = (id, updatedFields) => {
+    setStoredValue(prev => 
+      prev.map(item => item.id === id ? { ...item, ...updatedFields } : item)
+    );
+  };
+
+  const deleteTodo = (id) => {
+    setStoredValue(prev => prev.filter(item => item.id !== id));
+  };
+
+  const clearTodo = () => {
+    setStoredValue([]);
+  };
+
+  const syncWithExternalState = (externalState) => {
+    if (JSON.stringify(externalState) !== JSON.stringify(storedValue)) {
+      setStoredValue(externalState);
+    }
+  };
+
+  return {
+    storedValue,
+    getTodo,
+    addTodo,
+    updateTodo,
+    deleteTodo,
+    clearTodo,
+    syncWithExternalState
+  };
 }
 
 export default useLocalStorage;

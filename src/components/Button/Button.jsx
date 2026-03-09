@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import style from "./Button.module.scss"
 import { ItemContext } from "../../App";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 function Button({
     width, 
@@ -11,35 +10,32 @@ function Button({
     value, 
     valueInput
 }) {
-    const {item, setItem, id} = useContext(ItemContext);
+    const { addItem, generateId } = useContext(ItemContext);
+    
     const date = new Date();
-        const options = {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-            timezone: 'UTC',
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric'
+    const options = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    };
+    
+    const currentDate = date.toLocaleDateString("ru", options);
+    
+    const handleAddTask = () => {
+        if (!valueInput || valueInput.trim() === '') {
+            alert('Введите название задачи');
+            return;
         }
-
-        const {addTodo} = useLocalStorage();
         
-        const data = () => {
-            setItem(prev => [...prev, {
-                'id': id,
-                'status': 'active',
-                'date': currentDate,
-                'value': valueInput
-            }])
-            addTodo('todos', item)
-        }
-
-        const currentDate = date.toLocaleDateString("ru", options);
+        addItem(valueInput, currentDate);
+    };
 
     return (
         <div
-            onClick={() => data()}
+            onClick={handleAddTask}
             className={style.button}
             style={{
                 width,
@@ -49,7 +45,7 @@ function Button({
             }}>
             {value}
         </div>
-    )
+    );
 }
 
 export default Button;

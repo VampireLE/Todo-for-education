@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import style from "./Section.module.scss";
+import style from "./SectionDone.module.scss";
 import { ItemContext } from "../../App";
 import SubTask from "../SubTask/SubTask";
 
 
-function Section() {
+function SectionDone() {
   const { 
     filteredItems,
     toggleItemStatus, 
@@ -131,4 +131,4 @@ function Section() {
   );
 }
 
-export default Section;
+export default SectionDone;

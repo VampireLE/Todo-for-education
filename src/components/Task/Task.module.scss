@@ -1,0 +1,269 @@
+.task__container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  background: white;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.task__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task__main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.task__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.task__date {
+  font-size: 12px;
+  color: #666;
+  background: #f5f5f5;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.task__created {
+  font-size: 11px;
+  color: #999;
+}
+
+.task__actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task__action {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+
+  &-done {
+    width: auto;
+    padding: 0 12px;
+    background: #4CAF50;
+    color: white;
+    
+    &:hover {
+      background: #45a049;
+    }
+  }
+
+  &-expand {
+    &.expanded {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-edit {
+    color: #FF9800;
+    
+    &:hover {
+      background: #fff3e0;
+    }
+  }
+
+  &-remove {
+    color: #f44336;
+    
+    &:hover {
+      background: #ffebee;
+    }
+  }
+}
+
+.task__details {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px dashed #e0e0e0;
+}
+
+.task__addDate {
+  width: 100%;
+  padding: 8px;
+  background: #e3f2fd;
+  border: 1px dashed #2196F3;
+  border-radius: 4px;
+  color: #2196F3;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #bbdefb;
+  }
+}
+
+.task__dateInput {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.task__dateField {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.task__saveDate {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #45a049;
+  }
+}
+
+.task__subtasks {
+  margin-top: 10px;
+}
+
+.task__subtasksTitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.task__subtask {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 5px;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+}
+
+.task__subtaskText {
+  flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.task__subtaskInput {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.task__subtaskRemove {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #ffebee;
+  color: #f44336;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #ffcdd2;
+  }
+}
+
+.task__subtaskSave {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task__addSubtask {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  background: #f5f5f5;
+  border: 1px dashed #999;
+  border-radius: 4px;
+  color: #666;
+  cursor: pointer;
+
+  &:hover {
+    background: #eeeeee;
+  }
+}
+
+.task__addSubtaskForm {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task__subtaskAdd {
+  padding: 6px 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #45a049;
+  }
+}
+
+.task__subtaskCancel {
+  padding: 6px 12px;
+  background: #9e9e9e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #757575;
+  }
+}
